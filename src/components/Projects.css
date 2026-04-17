@@ -1,0 +1,129 @@
+.projects__list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.project {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  background: var(--bg-2);
+  padding: 2.5rem 2rem;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.project:hover {
+  background: var(--bg-3);
+}
+
+.project:hover .project__accent {
+  opacity: 0.12;
+}
+
+.project__num {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  color: var(--text-dim);
+  line-height: 1;
+  padding-top: 4px;
+  transition: color 0.3s;
+}
+
+.project:hover .project__num {
+  color: var(--proj-color);
+}
+
+.project__content {
+  position: relative;
+  z-index: 1;
+}
+
+.project__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.project__desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 680px;
+  margin-bottom: 1.5rem;
+}
+
+.project__highlights {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.project__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.project__check {
+  color: var(--proj-color);
+  font-size: 12px;
+  margin-top: 1px;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+.project__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project__tech {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  color: var(--proj-color);
+  background: var(--bg);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.project:hover .project__tech {
+  opacity: 1;
+}
+
+.project__accent {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--proj-color);
+  opacity: 0;
+  filter: blur(80px);
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .project { grid-template-columns: 1fr; }
+  .project__num { font-size: 2.5rem; }
+  .project__highlights { grid-template-columns: 1fr; }
+}
